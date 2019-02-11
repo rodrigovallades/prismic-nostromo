@@ -13,3 +13,59 @@ body {
     letter-spacing: 0.45px;
     color: #516677;
 }
+
+.prismic__container {
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+.quote + .quote {
+	margin-top: 1rem;
+}
+
+.quote__container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 0 auto;
+	max-width: 45rem;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+}
+
+.prismic__container[data-disjointed-align='true'] .quote__container {
+	max-width: 100%;
+}
+
+.quote__container > div {
+	flex-direction: column;
+}
+
+.quote__content {
+	flex: 1;
+	padding: 0 1rem 0 0;
+}
+
+.quote[data-position='right'] .quote__image {
+	order: 2;
+}
+
+.quote[data-position='right'] .quote__content {
+	text-align: right;
+	padding: 0 0 0 1rem;
+}
+
+@media only screen and (min-width: 1440px) {
+	.prismic__container {
+		margin-left: 12rem;
+		margin-right: 12rem;
+	}
+
+	.prismic__container[data-disjointed-align='true'] .quote[data-position='left'] .quote__container {
+		margin: 0 40% 0 20%;
+	}
+
+	.prismic__container[data-disjointed-align='true'] .quote[data-position='right'] .quote__container {
+		margin: 0 20% 0 40%;
+	}
+}

@@ -2,6 +2,8 @@ import React from 'react';
 import NotFound from './NotFound';
 import PrismicReact from 'prismic-reactjs';
 
+import Quote from './components/Quote';
+
 // Declare your component
 export default class Page extends React.Component {
   constructor(props){
@@ -37,16 +39,26 @@ export default class Page extends React.Component {
       });
     }
     return null;
-  }
+	}
 
 	render() {
-		if (this.state.doc) {
+		const { doc } = this.state;
+
+		if (doc) {
 			return (
-				<div data-wio-id={this.state.doc.id}>
+				<div className='prismic__container' data-wio-id={doc.id} data-disjointed-align={doc.data.disjointed}>
 					{/* This is how to insert a Rich Text field as plain text */}
-					<h1>{PrismicReact.RichText.asText(this.state.doc.data.title)}</h1>
-					{/* This is how to insert a Rich Text field into your template as html */}
-					{PrismicReact.RichText.render(this.state.doc.data.description, this.props.prismicCtx.linkResolver)}
+					<h1>{PrismicReact.RichText.asText(doc.data.title)}</h1>
+					{Array.isArray(doc.data.body) && doc.data.body.map((d, i) => {
+						switch (d.slice_type) {
+							case 'quote': {
+								return (<Quote data={d.primary} key={i} />)
+							}
+							default: {
+								return null;
+							}
+						}
+					})}
 				</div>
 			);
 		} else if (this.state.notFound) {

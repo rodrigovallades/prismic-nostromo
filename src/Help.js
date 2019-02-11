@@ -8,7 +8,7 @@ export default class Help extends React.Component {
   static getRepositoryInfo() {
     const repoRegexp = /^(https?:\/\/([-\w]+)\.[a-z]+\.(io|dev|test))\/api(\/v2)?$/;
     const [, url, name] = PrismicConfig.apiEndpoint.match(repoRegexp);
-    const isConfigured = name !== 'your-repo-name';
+    const isConfigured = name !== 'nostromo';
     return { url, name, isConfigured };
   }
 
@@ -61,19 +61,19 @@ export default class Help extends React.Component {
           If you haven't yet, create a Prismic content repository. A repository is where your website’s content will live. Simply <a href="https://prismic.io/#create" target="_blank" rel="noopener noreferrer">create one</a> by choosing a repository name and a plan. We've got a variety of plans including our favorite, Free!
         </p>
         <h4>Add the repository URL to your configuration</h4>
-        <p>Replace the repository url in your prismic configuration with <code className="tag">your-repo-name.prismic.io</code></p>
+        <p>Replace the repository url in your prismic configuration with <code className="tag">nostromo.prismic.io</code></p>
         <div className="source-code">
           <pre><code className="js">{`// In src/prismic-configuration.js
-apiEndpoint: "https://your-repo-name.prismic.io/api/v2",`}
+apiEndpoint: "https://nostromo.prismic.io/api/v2",`}
           </code></pre>
         </div>
         <h4>Add the repository URL to your index.html</h4>
-        <p>Replace the repository url in your prismic configuration with <code className="tag">your-repo-name.prismic.io</code></p>
+        <p>Replace the repository url in your prismic configuration with <code className="tag">nostromo.prismic.io</code></p>
         <div className="source-code">
           <pre><code className="js">{`// In public/index.html
 <script>
   window.prismic = {
-    endpoint: 'https://your-repo-name.prismic.io/api/v2'
+    endpoint: 'https://nostromo.prismic.io/api/v2'
   };
 </script>`}
           </code></pre>
@@ -136,7 +136,7 @@ apiEndpoint: "https://your-repo-name.prismic.io/api/v2",`}
         <p>
           The "Page" Custom Type you've just created contains a title, a paragraph, an image and a UID (unique identifier). Now it is time to fill in your first page!
           <br/><br/>
-          Go to "Content," hit "New," &amp; fill in the corresponding fields. 
+          Go to "Content," hit "New," &amp; fill in the corresponding fields.
           <span className="note">Note the value you filled in the UID field, because it will be a part of the page URL. For this example enter the value, <code className="tag">first-page</code>.</span>
           When you're done, hit <code className="tag">Save</code> then <code className="tag">Publish</code>.
         </p>
