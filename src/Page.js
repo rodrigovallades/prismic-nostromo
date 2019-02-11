@@ -3,6 +3,7 @@ import NotFound from './NotFound';
 import PrismicReact from 'prismic-reactjs';
 
 import Quote from './components/Quote';
+import ExtendedGrid from './components/ExtendedGrid';
 
 // Declare your component
 export default class Page extends React.Component {
@@ -53,6 +54,9 @@ export default class Page extends React.Component {
 						switch (d.slice_type) {
 							case 'quote': {
 								return (<Quote data={d.primary} key={i} />)
+							}
+							case 'extended_grid': {
+								return (<ExtendedGrid data={d.primary} key={i} />)
 							}
 							default: {
 								return null;
