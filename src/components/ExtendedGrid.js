@@ -1,17 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { minScreenSize } from '../modules/dom';
+
 export default class ExtendedGrid extends React.Component {
+	state = {
+		size: window.innerWidth
+	};
+
+	componentDidMount() {
+		window.addEventListener('resize', this.handleWindowResize);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.handleWindowResize);
+	}
+
+	handleWindowResize = () => {
+		this.setState({ size: window.innerWidth })
+	}
 
 	renderSmallImages(images) {
-		console.log('images', images);
-
 		return (
 			<div className='extended-grid__small'>
 				{images.map((d, i) => {
 					return (
-						<div key={i} style={{backgroundImage: `url(${d.url})` }}>
-							<span>{d.text}</span>
+						<div key={i} className='extended-grid__small__item'>
+							<h3>{d.text}</h3>
+							<img src={d.url} />
 						</div>
 					)
 				})}
@@ -37,8 +53,6 @@ export default class ExtendedGrid extends React.Component {
 			})
 		}
 
-		console.log('ExtendedGrid', data);
-
 		if (!data && !data.big_image.url) {
 			return null;
 		}
@@ -46,8 +60,9 @@ export default class ExtendedGrid extends React.Component {
 		return (
 			<div className='extended-grid'>
 				<div className="extended-grid__container">
-					<div className="extended-grid__big" style={{backgroundImage: `url(${data.big_image.url})` }}>
-						<span>{data.big_image_text.map(d => d.text)}</span>
+					<div className="extended-grid__big">
+						<h2>{data.big_image_text.map(d => d.text)}</h2>
+						<img src={minScreenSize('md') && data.big_image.large.url ? data.big_image.large.url : data.big_image.url} />
 					</div>
 					{smallImages.length && (this.renderSmallImages(smallImages))}
 				</div>
