@@ -10,7 +10,7 @@ const Quote = ({data})=> {
 		<div className='quote' data-position={data.image_position}>
 			<div className='quote__container'>
 				<div className='quote__image'>
-					<img className='image' src={data.image.url} width="200" height="180" alt="Quote" />
+					<img className='image' src={data.image.url} alt="Quote" />
 				</div>
 				<div className="quote__content">
 					<p>{data.text.map(d => d.text)}</p>

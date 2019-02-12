@@ -43,8 +43,18 @@ body {
 }
 .quote__content {
 	flex: 1;
+	font-size: 1rem;
+	line-height: 1.4;
 	padding: 0 1rem 0 0;
 }
+.quote__image {
+	max-width: 20%;
+	min-width: 120px;
+	display: flex;
+}
+	.quote__image img {
+		width: 100%;
+	}
 .quote[data-position='right'] .quote__image {
 	order: 2;
 }
@@ -116,6 +126,11 @@ body {
 	.prismic__container[data-disjointed-align='true'] .quote[data-position='right'] .quote__container {
 		margin: 0 20% 0 40%;
 	}
+
+	.quote__content {
+		font-size: 1.2rem;
+	}
+
 	.extended-grid__container {
 		flex-direction: row;
 	}
