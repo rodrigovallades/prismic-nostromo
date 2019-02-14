@@ -39,6 +39,12 @@ export default class ExtendedGrid extends React.Component {
 		const { data } = this.props;
 		const smallImages = [];
 
+		const classes = ['extended-grid'];
+
+		if (data.skip_margin === 'true') {
+			classes.push('prismic--skip-margin')
+		}
+
 		if (data.small_image_1) {
 			smallImages.push({
 				text: data.small_image_1_text.map(d => d.text) || '',
@@ -58,7 +64,7 @@ export default class ExtendedGrid extends React.Component {
 		}
 
 		return (
-			<div className='extended-grid'>
+			<div className={classes.join(' ')}>
 				<div className="extended-grid__container">
 					<div className="extended-grid__big">
 						<h2>{data.big_image_text.map(d => d.text)}</h2>

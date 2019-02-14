@@ -14,13 +14,9 @@ body {
 }
 
 /* PAGE */
-.prismic__container {
-	margin-left: 1rem;
-	margin-right: 1rem;
+.prismic__container h1 {
+	text-align: center;
 }
-	.prismic__container h1 {
-		text-align: center;
-	}
 
 /* QUOTE */
 .quote + .quote {
@@ -116,7 +112,7 @@ body {
 }
 
 @media only screen and (min-width: 1024px) {
-	.prismic__container {
+	.prismic__container > div:not(.prismic--skip-margin) {
 		margin-left: 12rem;
 		margin-right: 12rem;
 	}
