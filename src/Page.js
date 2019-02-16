@@ -4,6 +4,7 @@ import PrismicReact from 'prismic-reactjs';
 
 import Quote from './components/Quote';
 import ExtendedGrid from './components/ExtendedGrid';
+import Press from './components/Press';
 
 // Declare your component
 export default class Page extends React.Component {
@@ -57,6 +58,9 @@ export default class Page extends React.Component {
 							}
 							case 'extended_grid': {
 								return (<ExtendedGrid data={d.primary} key={i} />)
+							}
+							case 'press': {
+								return (<Press data={d.items} key={i} />)
 							}
 							default: {
 								return null;
