@@ -6,6 +6,8 @@ import Quote from './components/Quote';
 import ExtendedGrid from './components/ExtendedGrid';
 import Press from './components/Press';
 
+import './Page.css'
+
 // Declare your component
 export default class Page extends React.Component {
   constructor(props){
@@ -48,7 +50,7 @@ export default class Page extends React.Component {
 
 		if (doc) {
 			return (
-				<div className='prismic__container' data-wio-id={doc.id} data-disjointed-align={doc.data.disjointed}>
+				<div className='app__cms__container' data-wio-id={doc.id} data-disjointed-align={doc.data.disjointed}>
 					{/* This is how to insert a Rich Text field as plain text */}
 					<h1>{PrismicReact.RichText.asText(doc.data.title)}</h1>
 					{Array.isArray(doc.data.body) && doc.data.body.map((d, i) => {

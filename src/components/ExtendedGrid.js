@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { minScreenSize } from '../modules/dom';
 
+import './ExtendedGrid.css';
+
 export default class ExtendedGrid extends React.Component {
 	state = {
 		size: window.innerWidth

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './Quote.css'
+
 const Quote = ({data})=> {
 	if (!data || !data.text) {
 		return null;

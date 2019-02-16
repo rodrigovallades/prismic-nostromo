@@ -1,0 +1,26 @@
+/* PAGE */
+.app__cms__container h1 {
+	font-size: 1.2rem;
+	font-weight: bold;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	text-align: center;
+}
+.app__cms__container > div + div {
+	margin-top: 2rem;
+}
+@media only screen and (min-width: 1024px) {
+	.app__cms__container > div + div {
+		margin-top: 3rem;
+	}
+}
+.app__cms__container > div:not(.prismic--skip-margin) {
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+@media only screen and (min-width: 1024px) {
+	.app__cms__container > div:not(.prismic--skip-margin) {
+		margin-left: 12rem;
+		margin-right: 12rem;
+	}
+}
